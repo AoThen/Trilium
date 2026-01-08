@@ -15,15 +15,6 @@ jobs:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: Initialize submodules
-        run: |
-          git submodule init
-          git submodule update
-
-      - name: Apply patches
-        run: |
-          git apply --directory paerser/ patches/nested_maps.diff
-
       - name: 设置小写镜像名称和版本
         run: |
           LOWER_NAME=$(echo "$REPO_NAME" | tr '[:upper:]' '[:lower:]')
